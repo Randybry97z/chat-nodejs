@@ -9,7 +9,10 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       email: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        unique: true,
+        allowNull: false
+
       },
       password_hash: {
         type: Sequelize.STRING
@@ -18,7 +21,9 @@ module.exports = {
         type: Sequelize.STRING
       },
       nickname: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        unique: true,
+        allowNull: false
       },
       avatar: {
         type: Sequelize.STRING
