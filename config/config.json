@@ -1,0 +1,24 @@
+{
+  "development": {
+    "username": null,
+    "password": null,
+    "database": "chat-nodejs",
+    "host": "127.0.0.1",
+    "dialect": "sqlite",
+    "storage": "./chat-nodejs.sqlite3"
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": null,
+    "database": "database_production",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}

@@ -1,5 +1,6 @@
 const express = require('express')
-
+const sqlite3 = require('sqlite3')
+const Sequelize = require('sequelize')
 const app = express()
 
 app.set('view engine', 'pug')
@@ -8,7 +9,6 @@ app.use('/public', express.static('assets', {
 	etag: false,
 	maxAge: '24h'  //Max age for cache
 }))
-
 
 app.use('/', function (req,res) {
 	res.render('home')
