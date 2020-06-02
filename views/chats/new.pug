@@ -1,0 +1,8 @@
+doctype html
+html
+	head
+		title Crear chat
+	body
+		form(action="/chats" method="POST")
+			textarea(name="body" placeholder="Coloca tu mensaje...")
+			input(type="submit" value="Guardar")

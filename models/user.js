@@ -45,6 +45,10 @@ module.exports = (sequelize, DataTypes) => {
   }
   User.associate = function(models) {
     // associations can be defined here
+      User.hasMany(models.Chat,{
+      as: 'chats',
+      foreignKey: 'userId'
+    })
   };
     User.beforeCreate(function (user,options) {
     return new Promise((res,rej)=>{

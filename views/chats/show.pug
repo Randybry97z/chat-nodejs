@@ -1,0 +1,10 @@
+doctype html
+html
+	head
+		title Chats
+	body
+		h1= chat.body
+		p= chat.createdAt
+		p
+			strong Autor:
+			span= chat.user.email
