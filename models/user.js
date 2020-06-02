@@ -1,4 +1,8 @@
 'use strict';
+
+const bcrypt = require('bcrypt')
+
+
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
     email: {
@@ -12,14 +16,14 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       unique:true,
       allowNull: false
-    }
+    },
     avatar: DataTypes.STRING
   }, {});
-  User.login = function (email,password) {
+  User.login = function (nickname,password) {
     //Buscar usuario
     return User.findOne({
       where: {
-        email
+        nickname
       }
     }).then(user=>{
       if (!user) return null

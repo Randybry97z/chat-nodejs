@@ -3,7 +3,11 @@ const sqlite3 = require('sqlite3')
 const bodyParser = require('body-parser')
 const Sequelize = require('sequelize')
 const methodOverride = require('method-override')
+const session = require('express-session')
 const app = express()
+
+const registrationRoutes = require('./routes/registration_routes')
+const sessionRoutes = require('./routes/sessions_routes')
 
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(methodOverride('_method'))
@@ -14,8 +18,18 @@ app.use('/public', express.static('assets', {
 	maxAge: '24h'  //Max age for cache
 }))
 
-app.use('/', function (req,res) {
-	res.render('home')
+app.use(session({
+	secret: ['2312njwenrwjerw','12312ewdwifjsdfsd'],
+	saveUninitialized: false,
+	resave: false
+}))
+
+app.use(registrationRoutes)
+app.use(sessionRoutes)
+
+app.get('/', function (req,res) {
+	res.render('home',{user: req.user})
+	console.log(req)
 })
 
 

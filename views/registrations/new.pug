@@ -1,0 +1,10 @@
+doctype html
+html
+	head
+		title Registrate
+	body
+		form(action="/users" method="POST")
+			input(type="email" name="email" placeholder="Correo electrónico")
+			input(type="password" name="password" placeholder="Contraseña")
+			input(type="text" name="nickname" placeholder="Nickname")
+			input(type="submit" value="Crear cuenta")
