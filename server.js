@@ -9,6 +9,8 @@ const app = express()
 const registrationRoutes = require('./routes/registration_routes')
 const sessionRoutes = require('./routes/sessions_routes')
 
+const findUserMiddleware = require('./middlewares/find_user')
+
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(methodOverride('_method'))
 app.set('view engine', 'pug')
@@ -24,12 +26,14 @@ app.use(session({
 	resave: false
 }))
 
+app.use(findUserMiddleware)
+
 app.use(registrationRoutes)
 app.use(sessionRoutes)
 
 app.get('/', function (req,res) {
 	res.render('home',{user: req.user})
-	console.log(req)
+	//console.log(req.user)
 })
 
 

@@ -10,7 +10,8 @@ module.exports = {
 				if(user){
 					req.session.userId = user.id
 				}
-				res.json(user)
+				//res.json(user)
+				res.redirect('/')
 			})
 			.catch(err => {
 				console.log(err)
