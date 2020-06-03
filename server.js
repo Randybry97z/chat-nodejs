@@ -42,8 +42,7 @@ app.get('/', function (req,res) {
 })
 
 
-let server = app.listen(3000, function (err) {
-	if (err) return console.log('Hubo un error en el proceso'),process.exit(1)
+let server = app.listen(3000, function() {
 	console.log('App escuchando en el puerto 3000')
 })
 
@@ -55,31 +54,16 @@ io.on('connection', function (socket) {
 
 	let userId = socket.request._query.loggeduser
 	if (userId) sockets[userId] = socket
-	console.log(sockets)
+	//console.log(sockets)
 	//Actualiza usuarios conectados
 	usersCount++;
 
 	io.emit('count_updated',{count: usersCount})
 
-	socket.on('new_message', function (data) {
-		if (data.userId) {
-			let userSocket = sockets[data.userId]
-			if (!userSocket) return
-
-			userSocket.emit('new_message',data)
-		}
-		io.emit('new_message',data)
-	})
-
+/*NO EMITE MENSAJE, REVISAR LA EMISIÓN DEL MENSAJE*/
 	socket.on('disconnect', function () {
-
 		//Eliminar socket conectada
-		Object.keys(sockets).forEach(userId=> {
-			let s= sockets[userId]
-			if (s.id == socket.id) sockets[userId] = null
-		});
-
-		console.log(sockets)
+		delete sockets[userId]
 
 		usersCount--;
 		io.emit('count_updated',{count: usersCount})
