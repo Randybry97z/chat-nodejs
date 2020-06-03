@@ -44,7 +44,6 @@ app.get('/', function (req,res) {
 	})
 })
 
-
 let server = app.listen(3000, function() {
 	console.log('App escuchando en el puerto 3000')
 })
@@ -59,7 +58,6 @@ io.on('connection', function (socket) {
 	if (userId) sockets[userId] = socket
 	//Actualiza usuarios conectados
 	usersCount++;
-
 	socket.on('new_message', function (data) {
 		io.emit('new_message',data)
 	})

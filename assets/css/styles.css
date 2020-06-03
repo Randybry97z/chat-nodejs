@@ -290,6 +290,7 @@ textarea::placeholder{
 	margin-bottom: 10px;
 	margin-left: 20px;
 	padding: 1px;
+	width: 15%;
 	max-width: 30%;
 	height: 25px;
 	border: 1px solid;

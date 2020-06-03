@@ -19,5 +19,6 @@ html
 
 			socket.on('new_message', function (data) {
 				document.querySelector('#type-message').value = ''
-				document.querySelector('#messages').appendChild(document.createElement('li')).append(data.body)
+				document.querySelector('#messages').appendChild(document.createElement('li')).append(data.user_b+": "+data.body)
+				console.log(data)
 			})

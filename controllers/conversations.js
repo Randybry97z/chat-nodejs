@@ -22,6 +22,7 @@ module.exports = {
 	create: function (req,res) {
 		Chat.create({
 			body: req.body.body,
+			user_b: req.user.nickname,
 			userId: req.user.id
 		}).then(result=>{
 
