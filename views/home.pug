@@ -16,3 +16,8 @@ html
 			socket.on('count_updated', function (data) {
 				document.querySelector('#connected').innerHTML = data.count-1
 			})
+
+			socket.on('new_message', function (data) {
+				document.querySelector('#type-message').value = ''
+				document.querySelector('#messages').appendChild(document.createElement('li')).append(data.body)
+			})

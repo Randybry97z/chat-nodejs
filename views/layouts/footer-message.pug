@@ -1,7 +1,7 @@
 <!--Sección para ingresar el mensaje a enviar-->
 section(class="enter-message")
 	div(id="message")
-		form(action="/chats" method="POST")
+		form(action="/chats" id="message-form" method="POST")
 			textarea(name="body" placeholder="Type a message" id="type-message" cols="30" rows="10" autofocus="true")
 			button(type="submit" id="send")
 				img(src="public/img/send-button.svg")

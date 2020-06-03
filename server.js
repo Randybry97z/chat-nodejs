@@ -60,6 +60,10 @@ io.on('connection', function (socket) {
 	//Actualiza usuarios conectados
 	usersCount++;
 
+	socket.on('new_message', function (data) {
+		io.emit('new_message',data)
+	})
+
 	io.emit('count_updated',{count: usersCount})
 
 	socket.on('disconnect', function () {

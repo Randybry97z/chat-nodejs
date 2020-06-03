@@ -24,7 +24,7 @@ module.exports = {
 			body: req.body.body,
 			userId: req.user.id
 		}).then(result=>{
-				res.json(result)
+
 		}).catch(err=>{
 			console.log(err)
 			res.json(err)
