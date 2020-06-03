@@ -2,8 +2,13 @@ doctype html
 html
 	head
 		title Iniciar sesión
+		link(rel="stylesheet" href="public/css/login.css")
 	body
-		form(action="/sessions" method="POST")
-			input(type="text" name="nickname" placeholder="Nickname")
-			input(type="password" name="password" placeholder="Contraseña")
-			input(type="submit" value="Iniciar sesión")
+		div(class="login-box")
+			div(class="form")
+				h1 Please login to chat with your friends
+				form(action="/sessions" method="POST")
+					input(type="text" id="form-input" name="nickname" placeholder="Nickname")
+					input(type="password" id="form-input" name="password" placeholder="Contraseña")
+					input(type="submit" id="btn-success-login" value="Iniciar sesión")
+					a(href="/signup" id="register") ¿Don't have account? Sign in

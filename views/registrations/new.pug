@@ -1,10 +1,15 @@
 doctype html
 html
 	head
+		link(rel="stylesheet" href="public/css/login.css")
 		title Registrate
 	body
-		form(action="/users" method="POST")
-			input(type="email" name="email" placeholder="Correo electrónico")
-			input(type="password" name="password" placeholder="Contraseña")
-			input(type="text" name="nickname" placeholder="Nickname")
-			input(type="submit" value="Crear cuenta")
+		div(class="register-box")
+			h1 Please Sign in to chat with your friends.
+			div(class="form-register")
+				form(action="/users" method="POST")
+					input(type="email" id="form-input" name="email" placeholder="Correo electrónico")
+					input(type="password" id="form-input" name="password" placeholder="Contraseña")
+					input(type="text" id="form-input" name="nickname" placeholder="Nickname")
+					input(type="submit" id="btn-success" value="Crear cuenta")
+					a(href="/sessions" id="register") ¿Do you have account? Log in.

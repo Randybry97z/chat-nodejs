@@ -36,9 +36,12 @@ app.use(chatRoutes)
 app.use(registrationRoutes)
 app.use(sessionRoutes)
 
+const User = require('./models').User
+
 app.get('/', function (req,res) {
-	res.render('home',{user: req.user})
-	//console.log(req.user)
+	User.findAll().then((users)=>{
+		res.render('home',{user: req.user, users})
+	})
 })
 
 
@@ -54,13 +57,11 @@ io.on('connection', function (socket) {
 
 	let userId = socket.request._query.loggeduser
 	if (userId) sockets[userId] = socket
-	//console.log(sockets)
 	//Actualiza usuarios conectados
 	usersCount++;
 
 	io.emit('count_updated',{count: usersCount})
 
-/*NO EMITE MENSAJE, REVISAR LA EMISIÓN DEL MENSAJE*/
 	socket.on('disconnect', function () {
 		//Eliminar socket conectada
 		delete sockets[userId]

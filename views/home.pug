@@ -1,14 +1,12 @@
 doctype html
 html
-	head
-		title Welcome!
+	include layouts/header.pug
 	body
-		h1= user.nickname
-		p
-			span Usuarios conectados:
-			span#connected
-		form(action="/sessions?_method=DELETE" method="POST")
-			input(type="submit" value="Cerrar sesión")
+		span Current user:
+			h3=  user.nickname
+		include layouts/sidebar.pug
+		include layouts/chat-window.pug
+		include layouts/footer-message.pug
 		//script for import socketio
 		script(src="/socket.io/socket.io.js")
 		//script for implement the connection with the socket and get the users connected
@@ -16,6 +14,5 @@ html
 			socket = io.connect(window.location.origin, {query:'loggeduser=#{user.id}'})
 
 			socket.on('count_updated', function (data) {
-				document.querySelector('#connected').innerHTML = data.count
-				console.log('Usuario conectado o desconectado')
+				document.querySelector('#connected').innerHTML = data.count-1
 			})

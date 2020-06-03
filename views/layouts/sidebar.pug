@@ -1,0 +1,19 @@
+
+<!--Barra lateral-->
+div(id="search")
+	input(type="text" name="search" placeholder="Search or start new chat" id="isearch")
+section(class="active-chats")
+	div(id="sidebar")
+		p
+			span Usuarios conectados:
+			span#connected
+		form(action="/sessions?_method=DELETE" method="POST")
+			button(type="submit" id="btn-logout")
+				img(src="public/img/logout.svg")
+		ul(id="chats")
+			each user in users
+				li(id="list-item")
+						a(href="#" id="list-chats")
+							img(src="public/img/myAvatar.png" alt="" id="avatar")
+							h3(id="nickname")= user.nickname
+				hr(id="divider")

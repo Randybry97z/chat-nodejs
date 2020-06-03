@@ -1,0 +1,101 @@
+
+.login-box{
+	position: absolute;
+	display: block;
+	align-items: center;
+	background-color: white;
+	border-radius: 10px;
+	justify-content: center;
+	width: 60%;
+	margin: 1rem;
+	padding: 1rem;
+	margin-left: 20%;
+	margin-top: 8rem;
+	border: 1px solid black;
+	box-shadow: 0px 0px 10px gray;
+	z-index: 3 !important;
+}
+
+.register-box{
+	position: absolute;
+	background-color: white;
+	border-radius: 10px;
+	justify-content: center;
+	align-items: center;
+	width: 60%;
+	margin: 1rem;
+	padding: 1rem;
+	margin-left: 20%;
+	margin-top: 3rem;
+	border: 1px solid black;
+	box-shadow: 0px 0px 10px gray;
+	z-index: 3 !important;
+}
+
+.login-box h1, .register-box h1{
+	display: block;
+	font-size: 23px;
+	text-align: center;
+}
+
+.form, .form-register{
+	align-items: center !important;
+}
+
+.form input{
+	display: block;
+	width: 80%;
+	padding: 1px;
+	margin-left: 10%;
+	font-size: 15px;
+	margin-bottom: 10px;
+}
+
+.form-register input{
+	width: 80%;
+	height: 30px;
+	margin-left: 10%;
+	margin-bottom: 10px;
+	font-size: 15px;
+	padding: 1px;
+}
+
+#btn-success-login{
+	display: block;
+	justify-content: space-between;
+	float: right;
+	text-align: center;
+	padding: 5px;
+	margin: 5px;
+	margin-top: 5px;
+	margin-right: 30px;
+	width: 20%;
+	height: 35px;
+	background-color: #007FE0;
+	color: white;
+}
+
+#btn-success{
+	display: block;
+	justify-content: space-between;
+	float: right;
+	text-align: center;
+	margin-top: 5px;
+	margin-right: 2rem;
+	width: 30%;
+	height: 35px;
+	background-color: #007FE0;
+	color: white;
+}
+
+.form a#register, .form-register a#register{
+	display: block;
+	padding: 5px;
+	margin: 5px;
+	margin-top: 10px;
+	color: #282923;
+}
+
+.form a#register{
+	margin-top: 15px;
+}
