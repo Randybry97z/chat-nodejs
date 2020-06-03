@@ -18,11 +18,6 @@ module.exports = {
 				res.json(err)
 			})
 	},
-	// show: function (req,res) {
-	// 	User.findAll().then((users)=>{
-	// 		res.render('', {users})
-	// 	})
-	// },
 	destroy: function (req,res) {
 		req.session.destroy(function () {
 			res.redirect('/sessions')

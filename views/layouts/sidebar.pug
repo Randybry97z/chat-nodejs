@@ -13,7 +13,6 @@ section(class="active-chats")
 		ul(id="chats")
 			each user in users
 				li(id="list-item")
-						a(href="#" id="list-chats")
-							img(src="public/img/myAvatar.png" alt="" id="avatar")
-							h3(id="nickname")= user.nickname
+					img(src=user.avatar alt="" id="avatar")
+					h3(id="nickname")= user.nickname
 				hr(id="divider")
