@@ -1,4 +1,6 @@
 'use strict';
+const socket = require('../realtime/client')
+
 module.exports = (sequelize, DataTypes) => {
   const Chat = sequelize.define('Chat', {
     user_b: DataTypes.STRING,
@@ -11,5 +13,9 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'userId'
   	})
   };
+
+  Chat.afterCreate(function (chat,options) {
+    socket.emit('new_message',chat)
+  })
   return Chat;
 };

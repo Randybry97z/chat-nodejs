@@ -4,3 +4,17 @@ html
 		title Welcome!
 	body
 		h1= user.nickname
+		p
+			span Usuarios conectados:
+			span#connected
+		script(src="/socket.io/socket.io.js")
+		script.
+			socket = io.connect(window.location.origin, {query:'loggeduser=#{user.id}'})
+
+			socket.on('count_updated', function (data) {
+				document.querySelector('#connected').innerHTML = data.count
+			})
+
+			socket.on('new_message', function (data) {
+				console.log("Nuevo mensaje: " + data)
+			})
