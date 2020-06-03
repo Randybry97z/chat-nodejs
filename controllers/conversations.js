@@ -4,7 +4,7 @@ const User = require('../models').User
 module.exports = {
 	index: function (req,res) {
 		Chat.findAll().then((chats)=>{
-			res.render('chats/index',{chats})
+			res.render('chats/index',{chats: req.user.chats})
 		})
 	},
 	show: function (req,res) {
