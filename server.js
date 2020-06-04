@@ -26,11 +26,17 @@ app.use('/public', express.static('assets', {
 	maxAge: '24h'  //Max age for cache
 }))
 
-app.use(session({
+let sessionConfig = {
 	secret: ['2312njwenrwjerw','12312ewdwifjsdfsd'],
 	saveUninitialized: false,
 	resave: false
-}))
+}
+
+if (process.env.NODE_ENV && process.env.NODE_ENV == 'production') {
+	sessionConfig['store'] = new (require('connect-pg-simple')(session))()
+}
+
+app.use(session(sessionConfig))
 
 app.use(findUserMiddleware)
 app.use(authUserMiddleware)
@@ -50,7 +56,7 @@ app.get('/', function (req,res) {
 	})
 })
 
-let server = app.listen(3000, function() {
+let server = app.listen(process.env.PORT || 3000, function() {
 	console.log('App escuchando en el puerto 3000')
 })
 
