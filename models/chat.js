@@ -2,7 +2,7 @@
 const socket = require('../realtime/client')
 
 module.exports = (sequelize, DataTypes) => {
-  const Chat = sequelize.define('chat', {
+  const Chat = sequelize.define('Chat', {
     user_b: DataTypes.STRING,
     body: DataTypes.TEXT
   }, {});
