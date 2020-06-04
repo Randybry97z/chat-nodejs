@@ -41,14 +41,14 @@ module.exports = {
 			})
 		}
 	},
-	delete: function (req,res) {
-		User.destroy({
-			where: {},
-			truncate: true
-		}).then((response) =>{
-			console.log('Usuarios eliminados')
-		})
-	},
+	// delete: function (req,res) {
+	// 	User.destroy({
+	// 		where: {},
+	// 		truncate: true
+	// 	}).then((response) =>{
+	// 		console.log('Usuarios eliminados')
+	// 	})
+	// },
 	index: function (req,res) {
 		User.findAll().then((users)=>{
 			res.render('registrations/user',{users})
