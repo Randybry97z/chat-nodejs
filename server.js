@@ -49,11 +49,16 @@ const User = require('./models').User
 const Chat = require('./models').Chat
 
 app.get('/', function (req,res) {
-	User.findAll().then((users)=>{
-		Chat.findAll().then((chats)=>{
-			res.render('home',{user: req.user, users, chats})
+	if (req.user) {
+		User.findAll().then((users)=>{
+			Chat.findAll().then((chats)=>{
+				res.render('home',{user: req.user, users, chats})
+			})
 		})
-	})
+	}
+	else {
+		res.redirect('/sessions')
+	}
 })
 
 let server = app.listen(process.env.PORT || 3000, function() {

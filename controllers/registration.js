@@ -10,7 +10,7 @@ module.exports = {
 			let filename = image.name
 			image.mv('./assets/img/'+filename,function (err) {
 				if (err)
-					console.log(err)
+
 			})
 			let data = {
 				email: req.body.email,
@@ -19,11 +19,9 @@ module.exports = {
 				avatar: filename
 			}
 			User.create(data).then(result=>{
-				res.json(result)
-				console.log(result)
+				res.redirect('/')
 			}).catch(err=>{
 				res.json(err)
-				console.log(err)
 			})
 		}
 		else {
@@ -33,11 +31,9 @@ module.exports = {
 				nickname: req.body.nickname
 			}
 			User.create(data).then(result=>{
-				res.json(result)
-				console.log(result)
+				res.redirect('/')
 			}).catch(err=>{
 				res.json(err)
-				console.log(err)
 			})
 		}
 	},
