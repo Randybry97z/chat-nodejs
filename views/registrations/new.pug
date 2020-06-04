@@ -7,9 +7,10 @@ html
 		div(class="register-box")
 			h1 Please Sign in to chat with your friends.
 			div(class="form-register")
-				form(action="/users" method="POST")
+				form(action="/users" method="POST" encType="multipart/form-data")
 					input(type="email" id="form-input" name="email" placeholder="Correo electrónico")
 					input(type="password" id="form-input" name="password" placeholder="Contraseña")
 					input(type="text" id="form-input" name="nickname" placeholder="Nickname")
+					input(type="file" id="form-input" name="avatar")
 					input(type="submit" id="btn-success" value="Crear cuenta")
 					a(href="/sessions" id="register") ¿Do you have account? Log in.

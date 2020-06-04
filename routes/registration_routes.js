@@ -8,4 +8,6 @@ router.get('/signup', RegistrationsController.new)
 
 router.route('/users').post(RegistrationsController.create)
 
+router.route('/delete_users').delete(RegistrationsController.delete)
+
 module.exports = router

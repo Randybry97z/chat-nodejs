@@ -4,7 +4,8 @@ const bodyParser = require('body-parser')
 const Sequelize = require('sequelize')
 const methodOverride = require('method-override')
 const session = require('express-session')
-const socketio = require('socket.io');
+const socketio = require('socket.io')
+const fileUpload = require('express-fileupload')
 const app = express()
 
 const chatRoutes = require('./routes/chats_routes')
@@ -13,6 +14,8 @@ const sessionRoutes = require('./routes/sessions_routes')
 
 const findUserMiddleware = require('./middlewares/find_user')
 const authUserMiddleware = require('./middlewares/auth_user')
+
+app.use(fileUpload())
 
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(methodOverride('_method'))
