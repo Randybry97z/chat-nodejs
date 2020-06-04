@@ -19,6 +19,14 @@ module.exports = {
 			res.render('chats/show', {chat})
 		})
 	},
+	delete: function (req,res) {
+	 	Chat.destroy({
+	 		where: {},
+	 		truncate: true
+	 	}).then((response)=>{
+	 		console.log('Chats eliminados')
+	 	})
+	},
 	create: function (req,res) {
 		Chat.create({
 			body: req.body.body,

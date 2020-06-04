@@ -249,6 +249,7 @@ textarea::placeholder{
 	float: right;
 	width: 100%;
 	min-height: 450px;
+	max-height: 450px;
 	background: url(../img/bg.png);
 	overflow: scroll;
 }
@@ -289,13 +290,13 @@ textarea::placeholder{
 	margin-top: 20px;
 	margin-bottom: 10px;
 	margin-left: 20px;
-	padding: 1px;
-	width: 15%;
+	padding: 5px;
+	width: auto;
+	overflow-wrap: break-word;
 	max-width: 30%;
-	height: 25px;
-	border: 1px solid;
+	height: auto;
 	border-radius: 5px;
-	background-color: #DCF8C6;
+	background-color: #a1f7b8;
 	font-size: 15px;
 
 }

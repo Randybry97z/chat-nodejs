@@ -7,3 +7,5 @@ section(class="chat-window")
 	hr(id="header-divider")
 	div(id="conversation")
 		ul(id="messages")
+			each chat in chats
+				li= chat.user_b+ ": " +chat.body

@@ -37,10 +37,13 @@ app.use(registrationRoutes)
 app.use(sessionRoutes)
 
 const User = require('./models').User
+const Chat = require('./models').Chat
 
 app.get('/', function (req,res) {
 	User.findAll().then((users)=>{
-		res.render('home',{user: req.user, users})
+		Chat.findAll().then((chats)=>{
+			res.render('home',{user: req.user, users, chats})
+		})
 	})
 })
 

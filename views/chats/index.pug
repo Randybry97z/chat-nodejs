@@ -6,3 +6,5 @@ html
 		ul
 			each chat in chats
 				li= chat.body
+		form(action=`/chats?_method=DELETE` method="POST")
+			input(type="submit" value="Eliminar todos los mensajes")
