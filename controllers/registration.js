@@ -9,8 +9,9 @@ module.exports = {
 			let image= req.files.avatar
 			let filename = image.name
 			image.mv('./assets/img/'+filename,function (err) {
-				if (err)
-
+				if (err){
+					console.log(err)
+				}
 			})
 			let data = {
 				email: req.body.email,
