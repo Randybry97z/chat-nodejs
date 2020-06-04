@@ -14,7 +14,7 @@ html
 			socket = io.connect(window.location.origin, {query:'loggeduser=#{user.id}'})
 
 			socket.on('count_updated', function (data) {
-				document.querySelector('#connected').innerHTML = data.count-1
+				document.querySelector('#connected').innerHTML = data.count
 			})
 
 			socket.on('new_message', function (data) {
